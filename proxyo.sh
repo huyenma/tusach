@@ -128,8 +128,10 @@ LAST_PORT=$(($FIRST_PORT + $COUNT))
 gen_data >$WORKDIR/data.txt
 gen_iptables >$WORKDIR/boot_iptables.sh
 gen_ifconfig >$WORKDIR/boot_ifconfig.sh
-chmod +x ./home/proxy-installer/boot_iptables.sh
-chmod +x ./home/proxy-installer/boot_ifconfig.sh
+cd /
+cd home/proxy-installer
+chmod +x ./boot_iptables.sh
+chmod +x ./boot_ifconfig.sh
 gen_3proxy >/etc/3proxy/3proxy.cfg
 ulimit -S -n 4096
 /etc/init.d/3proxy start
